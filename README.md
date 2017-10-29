@@ -1,4 +1,4 @@
-# movie-recommender
+A Movie Recommendation Application written in Dropwizard
 
 How to start the movie-recommender application
 ---
@@ -11,3 +11,4 @@ Health Check
 ---
 
 To see your applications health enter url `http://localhost:8081/healthcheck`
+
