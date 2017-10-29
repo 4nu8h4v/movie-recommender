@@ -28,12 +28,9 @@ public class MovieSearchResource {
 		st = new SuggestTree(15);
 		PopulateMovieDB pmdb = PopulateMovieDB.getInstance();
 		Map<String, Map<String, String>> movies = pmdb.getMoviesRowMap();
-       	//logger.info("Movie list is {} entries long", movies.size());
     	movies.forEach((movieId, vMap) -> {
-    		//st.put(v.get("title"), 1);
-    		vMap.forEach((k, v) -> {
-    			//logger.info("{} : {} : {}", movieId, k, v);
-    			st.put(k, 1);
+    		vMap.forEach((movieTitle, movieRating) -> {
+    			st.put(movieTitle, 1);
     		});
     	});
     	
