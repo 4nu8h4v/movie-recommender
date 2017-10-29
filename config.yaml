@@ -1,0 +1,8 @@
+server:
+  rootPath: /api/
+  
+logging:
+  level: INFO
+  loggers:
+        "com.recommender.resources.*" : DEBUG
+  

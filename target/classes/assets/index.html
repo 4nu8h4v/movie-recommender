@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Hi!</title>	
+	<link rel="stylesheet" type="text/css" href="/css/auto-complete.css">
+</head>
+<body>
+	<h2>Hi!</h2><br/>
+	<h3>Welcome to my Dropwizard app</h3>
+ 	<!-- <input type="text" name="q[]" style="width:100%;max-width:600px;outline:0">
+ 	<input type="text" name="q[]" style="width:100%;max-width:600px;outline:0">
+ 	-->
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/auto-complete.js"></script>
+	<script>
+		window.onload = function(){
+			const NUM_INPUTS = 5;
+			let form = document.createElement("form");
+			form.setAttribute('name', "movieList");
+			form.setAttribute('method',"post");
+			form.setAttribute('action',"/api/rec");
+			form.setAttribute('enctype',"multipart/form-data");
+			for(let i = 0; i < NUM_INPUTS; ++i){
+				let input = document.createElement("input");
+				input.type = "text";
+				input.name = "movie[]";
+				input.id = "movie_" + i;
+				form.appendChild(input);
+			}
+			let submit = document.createElement("input");
+			submit.type = "submit";
+			submit.value = "Submit";
+			form.appendChild(submit);
+			document.getElementsByTagName('body')[0].appendChild(form);
+		}
+	</script>
+	<script>
+		$(document).ready(function(){
+			const NUM_INPUTS = 5;
+			for(let i = 0; i < NUM_INPUTS; ++i){
+				new autoComplete({
+					selector: 'input[id="' + 'movie_' + i + '"]',
+					minChars: 2,
+					 source: function(term, response){
+							$.getJSON('/api/search', { title: term }, function(data){ response(data); });
+					 }
+				});
+			}
+		});
+	</script>
+</body>
+</html>
