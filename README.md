@@ -12,3 +12,8 @@ Health Check
 
 To see your applications health enter url `http://localhost:8081/healthcheck`
 
+References
+---
+
+Adomavicius, Gediminas, and Alexander Tuzhilin. "Toward the next generation of recommender systems: A survey of the state-of-the-art and possible extensions." IEEE transactions on knowledge and data engineering 17, no. 6 (2005): 734-749.
+
