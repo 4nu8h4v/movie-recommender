@@ -1,4 +1,4 @@
-A Movie Recommendation Application written in Dropwizard
+# A Movie Recommendation Application written in Dropwizard
 
 How to start the movie-recommender application
 ---
