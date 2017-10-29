@@ -26,7 +26,6 @@ import com.codahale.metrics.annotation.Timed;
 import com.recommender.core.CollaborativeFiltering;
 
 @Path("/rec")
-//@Produces(MediaType.TEXT_PLAIN)
 public class RecommenderResource {
 	private static final Logger logger = LoggerFactory.getLogger(RecommenderResource.class);
 	
@@ -41,10 +40,6 @@ public class RecommenderResource {
         	Map<String, Double> predictedRatings = cf.getMoviePredictions();    	
         	Double mse = cf.meanSquaredError(Integer.toString(i), predictedRatings);	
         	logger.info("Mean Squared Error {}", mse);    	
-        	/*ArrayList<Pair<String, Double>> usp = cf.getUserIdSimilarityPairs();
-        	for(Pair<String, Double> p : usp) {
-        		logger.info("{} : {} ",p.getLeft(),p.getRight());
-        	}*/
         	mmse += mse;
     	}
     	mmse /= (671-662 + 1);
